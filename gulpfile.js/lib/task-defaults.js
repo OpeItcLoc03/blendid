@@ -20,17 +20,11 @@ module.exports = {
       exclude: /node_modules/
     },
     babel: {
-      presets: [["es2015", { "modules": false }], 'stage-1']
+      presets: ["@babel/env"]
     },
     development: {},
     production: {
-      devtool: false,
-      uglifyJsPlugin: {},
-      definePlugin: {
-        'process.env': {
-          'NODE_ENV': JSON.stringify('production')
-        }
-      }
+      devtool: false
     }
   },
 
