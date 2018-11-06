@@ -44,7 +44,8 @@ module.exports = function (env) {
     },
     module: {
       rules: [ TASK_CONFIG.javascripts.babelLoader ]
-    }
+    },
+    mode: env
   }
 
   // Provide global objects to imported modules to resolve dependencies (e.g. jquery)
@@ -85,12 +86,6 @@ module.exports = function (env) {
     if(webpackConfig.devtool) {
       uglifyConfig.sourceMap = true
     }
-
-    webpackConfig.plugins.push(
-      new webpack.DefinePlugin(TASK_CONFIG.javascripts.production.definePlugin),
-      new webpack.optimize.UglifyJsPlugin(uglifyConfig),
-      new webpack.NoEmitOnErrorsPlugin()
-    )
   }
 
 
